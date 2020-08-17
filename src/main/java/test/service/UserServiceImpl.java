@@ -10,8 +10,13 @@ import java.util.List;
 @Service
 @Transactional
 public class UserServiceImpl {
-    @Autowired
+    final
     UsersRepo repo;
+
+    @Autowired
+    public UserServiceImpl(UsersRepo repo) {
+        this.repo = repo;
+    }
 
     public void save(User customer) {
         repo.save(customer);
